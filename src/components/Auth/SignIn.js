@@ -27,7 +27,7 @@ export default function SignIn(props) {
             email: formData.get("email"),
             password: formData.get("password")
         };
-        const { data } = await axios.post(`${baseURL}/signin`, form);
+        const { data } = await axios.post(`${baseURL}/user/signin`, form);
         if (data.status === parseInt("401")) {
             setErrorMessage(data.response);
         } else {

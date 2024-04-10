@@ -25,7 +25,7 @@ function Copyright(props) {
         >
             {"Copyright © "}
             <Link color="inherit" href="https://mui.com/">
-                Your Website
+                Anonfedora
             </Link>{" "}
             {new Date().getFullYear()}
             {"."}
@@ -39,11 +39,11 @@ export default function SignUp() {
     let navigate = useNavigate();
     const handleSubmit = async event => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
+        const formData = new FormData(event.currentTarget);
         const form = {
-            fullname: data.get("fname") + " " + data.get("lname"),
-            email: data.get("email"),
-            password: data.get("password")
+            fullname: formData.get("fname") + " " + formData.get("lname"),
+            email: formData.get("email"),
+            password: formData.get("password")
         };
         await axios.post(`${baseURL}/user/signup`, form);
         navigate("/");
